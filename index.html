@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post-SAR Psychological Assessment</title>
+<style>
+:root{--navy:#15324b;--blue:#24658a;--teal:#167c80;--bg:#f3f6f9;--line:#d8e1e8;--muted:#607080;--red:#a52b35;--amber:#9a5b00;--green:#246b45}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font:15px/1.55 Arial,Helvetica,sans-serif;color:#243342}
+.wrap{max-width:980px;margin:28px auto;padding:0 16px}.hero{background:linear-gradient(120deg,#15324b,#24658a);color:#fff;padding:28px;border-radius:16px}
+.hero h1{margin:0 0 8px;font-size:25px}.hero p{margin:5px 0;color:#e5eef5}.tag{display:inline-block;background:#ffffff20;padding:5px 10px;border-radius:30px;font-size:12px;margin-bottom:12px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;margin:16px 0;box-shadow:0 3px 12px #18364a0a}
+h2{font-size:19px;color:var(--navy);margin:0 0 14px}h3{font-size:16px;color:var(--blue);margin:20px 0 8px}
+.note{padding:12px 14px;border-left:4px solid var(--blue);background:#edf5fa;border-radius:7px;margin:12px 0}
+.warning{padding:12px 14px;border-left:4px solid #c47b12;background:#fff7e8;border-radius:7px;margin:12px 0}
+.danger{padding:12px 14px;border-left:4px solid var(--red);background:#fff0f0;border-radius:7px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field label{display:block;font-weight:600;margin-bottom:5px}.field input,.field select,.field textarea{width:100%;padding:10px;border:1px solid #bdcbd6;border-radius:8px;font:inherit;background:white}
+.question{padding:14px 0;border-bottom:1px solid #e7edf1}.question:last-child{border:0}.qtext{font-weight:600;margin-bottom:9px}.qnum{color:var(--blue);font-weight:700;margin-right:5px}
+.options{display:flex;flex-wrap:wrap;gap:8px}.options label{border:1px solid #d4dee6;border-radius:8px;padding:7px 10px;cursor:pointer;font-size:14px}.options input{accent-color:var(--blue);margin-right:5px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.btn{border:0;border-radius:9px;padding:11px 17px;font-weight:700;cursor:pointer;font-size:14px}.primary{background:var(--blue);color:#fff}.secondary{background:#e8eef3;color:var(--navy)}.dangerbtn{background:#9e3038;color:#fff}
+.small{font-size:13px;color:var(--muted)}.hidden{display:none!important}
+.result-head{padding:18px;border-radius:10px;background:#edf5fa}.score{font-size:32px;font-weight:800;color:var(--navy)}.pill{display:inline-block;border-radius:30px;padding:5px 10px;font-weight:700;font-size:13px}
+table{border-collapse:collapse;width:100%;margin:10px 0}th,td{padding:10px;border:1px solid var(--line);text-align:left}th{background:#eef3f7}
+.bar{height:10px;background:#e7edf1;border-radius:10px;overflow:hidden}.bar span{display:block;height:100%;background:var(--teal)}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
+@media(max-width:650px){.grid{grid-template-columns:1fr}.hero{padding:22px}.hero h1{font-size:21px}.card{padding:16px}.options{gap:6px}.options label{flex:1 1 44%}}
+@media print{body{background:white}.wrap{max-width:none;margin:0}.hero{background:#15324b!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.card{box-shadow:none;break-inside:avoid}.actions,.no-print{display:none!important}.hidden{display:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+ <span class="tag">INSTRUMEN SKRINING AWAL • PASCAOPERASI SAR</span>
+ <h1>POST-SAR PSYCHOLOGICAL ASSESSMENT</h1>
+ <p>Kuesioner kondisi psikologis rescuer setelah operasi Search and Rescue (SAR)</p>
+ <p class="small" style="color:#dce8f0">Pengisian mandiri • Perkiraan 5–10 menit • Periode penilaian: 7 hari terakhir</p>
+</header>
+
+<section class="card">
+<h2>A. Identitas Responden</h2>
+<div class="grid">
+ <div class="field"><label for="kode">Kode responden</label><input id="kode" placeholder="Contoh: RSC-001"></div>
+ <div class="field"><label for="nama">Nama (opsional)</label><input id="nama" placeholder="Boleh dikosongkan"></div>
+ <div class="field"><label for="usia">Usia</label><input id="usia" type="number" min="15" max="100"></div>
+ <div class="field"><label for="peran">Peran dalam operasi SAR</label><input id="peran" placeholder="Rescuer / medis / evakuasi / operator"></div>
+ <div class="field"><label for="lokasi">Lokasi operasi</label><input id="lokasi"></div>
+ <div class="field"><label for="durasi">Lama keterlibatan operasi</label><input id="durasi" placeholder="Contoh: 3 hari"></div>
+ <div class="field"><label for="tanggal">Tanggal operasi selesai</label><input id="tanggal" type="date"></div>
+ <div class="field"><label for="pengalaman">Pernah mengikuti operasi SAR sebelumnya?</label><select id="pengalaman"><option value="">Pilih</option><option>Ya</option><option>Tidak</option></select></div>
+</div>
+</section>
+
+<section class="card">
+<h2>B. Petunjuk Pengisian</h2>
+<p>Pilih satu jawaban pada setiap pernyataan yang paling menggambarkan kondisi Anda selama <b>7 hari terakhir</b>. Jawablah sesuai keadaan yang sebenarnya. Tidak ada jawaban benar atau salah.</p>
+<table><thead><tr><th>Skor</th><th>Jawaban</th><th>Makna</th></tr></thead><tbody>
+<tr><td>0</td><td>Tidak pernah</td><td>Tidak dialami</td></tr>
+<tr><td>1</td><td>Jarang</td><td>Terjadi 1–2 kali</td></tr>
+<tr><td>2</td><td>Sering</td><td>Terjadi beberapa kali</td></tr>
+<tr><td>3</td><td>Hampir selalu</td><td>Terjadi hampir setiap hari</td></tr>
+</tbody></table>
+<div class="warning"><b>Catatan:</b> Kuesioner ini adalah rancangan skrining khusus konteks SAR dan belum tervalidasi sebagai alat psikometri. Hasilnya bukan diagnosis dan tidak boleh digunakan sendiri untuk menentukan kelayakan bekerja atau penugasan.</div>
+</section>
+
+<form id="assessment">
+<section class="card">
+<h2>C. Kuesioner Utama</h2>
+<div id="questions"></div>
+</section>
+<section class="card">
+<h2>D. Pertanyaan Keselamatan Diri</h2>
+<p class="small">Bagian ini tidak dihitung dalam skor total. Jawaban “Ya” perlu ditindaklanjuti secara langsung oleh petugas yang kompeten.</p>
+<div id="safety"></div>
+</section>
+<section class="card">
+<h2>E. Evaluasi Subjektif</h2>
+<div class="field"><label for="berat">1. Apa pengalaman paling berat selama operasi SAR?</label><textarea id="berat" rows="3"></textarea></div><br>
+<div class="field"><label for="ganggu">2. Apa yang paling mengganggu pikiran atau perasaan setelah operasi?</label><textarea id="ganggu" rows="3"></textarea></div><br>
+<div class="field"><label for="dukungan">3. Dukungan apa yang paling dibutuhkan saat ini?</label><textarea id="dukungan" rows="3"></textarea></div><br>
+<div class="field"><label for="konseling">4. Apakah bersedia mengikuti konseling/pendampingan psikologis?</label><select id="konseling"><option value="">Pilih</option><option>Ya</option><option>Tidak</option><option>Masih mempertimbangkan</option></select></div>
+</section>
+<div class="actions no-print">
+ <button class="btn primary" type="button" onclick="calculate()">Hitung & tampilkan interpretasi</button>
+ <button class="btn secondary" type="reset" onclick="resetResults()">Kosongkan jawaban</button>
+</div>
+</form>
+
+<section id="results" class="card hidden" aria-live="polite">
+<h2>F. Hasil Skrining dan Interpretasi</h2>
+<div id="summary"></div>
+<div id="domainResults"></div>
+<div id="recommendation"></div>
+<div class="actions no-print">
+ <button class="btn primary" onclick="window.print()">Cetak / Simpan PDF</button>
+ <button class="btn secondary" onclick="downloadCSV()">Unduh hasil (.csv)</button>
+</div>
+<p class="small">Hasil ini merupakan dukungan pengambilan keputusan awal, bukan diagnosis klinis. Interpretasi perlu mempertimbangkan wawancara, fungsi sehari-hari, kondisi fisik, riwayat, dan penilaian profesional.</p>
+</section>
+
+<section class="card">
+<h2>G. Panduan Interpretasi dan Tindak Lanjut</h2>
+<p>Skor 16 butir utama memiliki rentang 0–48. Untuk memudahkan pemantauan, aplikasi menghitung rerata skor (total dibagi 16) dan rerata tiap dimensi (4 butir per dimensi).</p>
+<table><thead><tr><th>Rerata</th><th>Label pemantauan sementara</th><th>Respons yang disarankan</th></tr></thead><tbody>
+<tr><td>0,00–0,74</td><td>Keluhan terlapor rendah</td><td>Edukasi pemulihan, dukungan rekan, dan pemantauan rutin.</td></tr>
+<tr><td>0,75–1,49</td><td>Keluhan mulai muncul</td><td>Check-in dengan atasan/petugas pendamping, istirahat cukup, dukungan sosial, dan evaluasi ulang.</td></tr>
+<tr><td>1,50–2,24</td><td>Keluhan perlu perhatian</td><td>Asesmen lebih lanjut oleh psikolog/tenaga profesional; pertimbangkan penyesuaian beban tugas sementara berdasarkan evaluasi.</td></tr>
+<tr><td>2,25–3,00</td><td>Keluhan tinggi</td><td>Prioritaskan evaluasi profesional secepatnya dan susun rencana dukungan serta tindak lanjut.</td></tr>
+</tbody></table>
+<div class="danger"><b>Aturan keselamatan mengesampingkan skor:</b> jawaban “Ya” pada pertanyaan keselamatan nomor 1 atau 2 memerlukan penilaian keselamatan segera, pendampingan langsung, dan akses ke layanan darurat/profesional. Jangan menunggu hasil skor atau jadwal skrining berikutnya.</div>
+<p class="small">Batas rerata di atas adalah kategori operasional sementara yang dibuat untuk membantu triase internal, bukan cut-off tervalidasi. Uji validitas isi, uji keterbacaan, validitas konstruk, reliabilitas, dan penetapan ambang berbasis data populasi rescuer tetap diperlukan sebelum penggunaan resmi.</p>
+</section>
+<footer>POST-SAR Psychological Assessment • Dokumen skrining awal • Jaga kerahasiaan data responden</footer>
+</div>
+<script>
+const groups = [
+ {name:"Dimensi 1 — Respons Emosional",items:[
+ "Saya masih merasa sedih ketika mengingat kejadian selama operasi SAR.",
+ "Saya merasa cemas atau takut ketika mengingat situasi di lokasi operasi.",
+ "Saya mudah marah, tersinggung, atau kehilangan kesabaran setelah operasi.",
+ "Saya merasa bersalah karena ada korban yang tidak berhasil diselamatkan."
+ ]},
+ {name:"Dimensi 2 — Respons Trauma dan Ingatan terhadap Kejadian",items:[
+ "Gambaran kejadian selama operasi SAR muncul kembali secara tiba-tiba dalam pikiran saya.",
+ "Saya mengalami mimpi buruk tentang kejadian selama operasi SAR.",
+ "Saya berusaha menghindari pembicaraan, tempat, atau hal-hal yang mengingatkan saya pada kejadian tersebut.",
+ "Saya merasa sangat waspada atau terkejut berlebihan terhadap suara atau situasi tertentu."
+ ]},
+ {name:"Dimensi 3 — Kelelahan Psikologis dan Fisik",items:[
+ "Saya merasa kelelahan secara mental meskipun sudah beristirahat.",
+ "Saya mengalami kesulitan tidur atau tidur tidak nyenyak.",
+ "Saya sulit berkonsentrasi atau mengambil keputusan.",
+ "Saya merasa kehilangan semangat atau motivasi untuk melakukan aktivitas sehari-hari."
+ ]},
+ {name:"Dimensi 4 — Adaptasi dan Kesiapan Kembali Bertugas",items:[
+ "Saya merasa kesulitan kembali menjalankan rutinitas sehari-hari setelah operasi SAR.",
+ "Saya merasa hubungan atau interaksi saya dengan keluarga dan rekan kerja terganggu setelah operasi.",
+ "Saya merasa khawatir apabila harus kembali mengikuti operasi SAR berikutnya.",
+ "Saya merasa belum sepenuhnya pulih secara psikologis untuk kembali menjalankan tugas."
+ ]}
+];
+const answers=["Tidak pernah","Jarang","Sering","Hampir selalu"];
+const qRoot=document.getElementById("questions");
+let n=0;
+groups.forEach((g,gi)=>{
+ const heading=document.createElement("h3");heading.textContent=g.name;qRoot.appendChild(heading);
+ g.items.forEach((q,qi)=>{
+  n++;const id="q"+n;const div=document.createElement("div");div.className="question";
+  div.innerHTML=`<div class="qtext"><span class="qnum">${n}.</span>${q}</div><div class="options">${answers.map((a,v)=>`<label><input type="radio" name="${id}" value="${v}" required> ${v} — ${a}</label>`).join("")}</div>`;
+  qRoot.appendChild(div);
+ });
+});
+const safetyItems=[
+ "Apakah setelah operasi SAR Anda pernah merasa hidup tidak berarti atau memiliki keinginan untuk menyakiti diri sendiri?",
+ "Apakah Anda merasa tidak mampu mengendalikan emosi atau perilaku sehingga berisiko membahayakan diri sendiri maupun orang lain?",
+ "Apakah Anda merasa membutuhkan bantuan profesional untuk menghadapi kondisi psikologis setelah operasi SAR?"
+];
+const sRoot=document.getElementById("safety");
+safetyItems.forEach((q,i)=>{
+ const d=document.createElement("div");d.className="question";
+ d.innerHTML=`<div class="qtext">${i+1}. ${q}</div><div class="options"><label><input type="radio" name="s${i+1}" value="Ya" required> Ya</label><label><input type="radio" name="s${i+1}" value="Tidak" required> Tidak</label></div>`;
+ sRoot.appendChild(d);
+});
+function val(name){const x=document.querySelector(`input[name="${name}"]:checked`);return x?Number(x.value):null}
+function safetyVal(name){const x=document.querySelector(`input[name="${name}"]:checked`);return x?x.value:null}
+function band(avg){if(avg<0.75)return ["Keluhan terlapor rendah","green"];if(avg<1.5)return ["Keluhan mulai muncul","blue"];if(avg<2.25)return ["Keluhan perlu perhatian","amber"];return ["Keluhan tinggi","red"]}
+function calculate(){
+ const form=document.getElementById("assessment");
+ if(!form.reportValidity())return;
+ const scores=Array.from({length:16},(_,i)=>val("q"+(i+1)));
+ if(scores.some(x=>x===null)){alert("Lengkapi seluruh pertanyaan utama.");return}
+ const total=scores.reduce((a,b)=>a+b,0),avg=total/16;
+ const safety=[1,2,3].map(i=>safetyVal("s"+i));
+ const urgent=safety[0]==="Ya"||safety[1]==="Ya";
+ const labels=["Respons Emosional","Respons Trauma dan Ingatan","Kelelahan Psikologis dan Fisik","Adaptasi dan Kesiapan Kembali Bertugas"];
+ let html=`<div class="result-head"><div class="small">Skor total</div><div class="score">${total} / 48</div><b>Rerata: ${avg.toFixed(2).replace(".",",")} dari 3</b><br><span class="pill" style="background:${band(avg)[1]==="green"?"#e6f4eb":band(avg)[1]==="blue"?"#e8f2fa":band(avg)[1]==="amber"?"#fff2d9":"#fde8e8"};color:${band(avg)[1]==="green"?"#246b45":band(avg)[1]==="blue"?"#245d82":band(avg)[1]==="amber"?"#925700":"#a52b35"}">${band(avg)[0]}</span></div>`;
+ html+=`<p><b>Kode responden:</b> ${escapeHtml(document.getElementById("kode").value||"Tidak diisi")} &nbsp; <b>Tanggal pemeriksaan:</b> ${new Date().toLocaleDateString("id-ID")}</p>`;
+ document.getElementById("summary").innerHTML=html;
+ let dh="<h3>Hasil per dimensi</h3><table><thead><tr><th>Dimensi</th><th>Skor</th><th>Rerata</th><th>Interpretasi sementara</th></tr></thead><tbody>";
+ groups.forEach((g,i)=>{const sub=scores.slice(i*4,i*4+4).reduce((a,b)=>a+b,0),a=sub/4;dh+=`<tr><td>${labels[i]}</td><td>${sub}/12</td><td>${a.toFixed(2).replace(".",",")}</td><td>${band(a)[0]}</td></tr>`});
+ dh+="</tbody></table><p class='small'>Dimensi dengan rerata tertinggi menunjukkan area keluhan yang paling menonjol untuk dieksplorasi lebih lanjut; bukan diagnosis.</p>";
+ document.getElementById("domainResults").innerHTML=dh;
+ let rec="";
+ if(urgent){rec=`<div class="danger"><h3>PERHATIAN KESELAMATAN — TINDAK LANJUT SEGERA</h3><p>Responden menjawab “Ya” pada pertanyaan keselamatan diri nomor 1 atau 2. Lakukan penilaian keselamatan secara langsung oleh tenaga kompeten, pastikan responden tidak ditinggalkan sendirian bila terdapat risiko akut, dan hubungkan segera dengan psikolog/psikiater atau layanan gawat darurat sesuai tingkat risiko. Jangan menunggu skor total.</p></div>`}
+ else if(avg>=2.25){rec=`<div class="danger"><b>Prioritas tindak lanjut:</b> atur asesmen profesional secepatnya, evaluasi dampak pada fungsi sehari-hari dan keselamatan, serta susun dukungan dan evaluasi ulang.</div>`}
+ else if(avg>=1.5){rec=`<div class="warning"><b>Tindak lanjut:</b> jadwalkan asesmen lebih lanjut dengan psikolog/tenaga profesional. Tinjau tidur, fungsi kerja, dukungan sosial, dan kebutuhan pemulihan.</div>`}
+ else if(avg>=.75){rec=`<div class="note"><b>Tindak lanjut:</b> lakukan check-in suportif, berikan kesempatan istirahat dan dukungan rekan, serta evaluasi ulang bila keluhan menetap atau memburuk.</div>`}
+ else{rec=`<div class="note"><b>Tindak lanjut:</b> lanjutkan pemulihan, jaga tidur dan dukungan sosial, serta lakukan pemantauan. Skor rendah tidak meniadakan kebutuhan bantuan bila responden merasa terganggu.</div>`}
+ if(safety[2]==="Ya")rec+=`<div class="note"><b>Kebutuhan bantuan:</b> responden menyatakan membutuhkan bantuan profesional. Tawarkan akses konseling/asesmen meskipun skor total rendah.</div>`;
+ rec+=`<h3>Jawaban keselamatan diri</h3><ul>${safety.map((x,i)=>`<li>Pertanyaan ${i+1}: <b>${x}</b></li>`).join("")}</ul>`;
+ document.getElementById("recommendation").innerHTML=rec;
+ document.getElementById("results").classList.remove("hidden");
+ document.getElementById("results").scrollIntoView({behavior:"smooth"});
+ window.lastAssessment={scores,total,avg,safety,labels,domainScores:groups.map((g,i)=>scores.slice(i*4,i*4+4).reduce((a,b)=>a+b,0)),band:band(avg)[0]};
+}
+function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function resetResults(){document.getElementById("results").classList.add("hidden");window.lastAssessment=null}
+function downloadCSV(){
+ if(!window.lastAssessment){alert("Hitung hasil terlebih dahulu.");return}
+ const r=window.lastAssessment;
+ const rows=[["Kode responden",document.getElementById("kode").value],["Nama",document.getElementById("nama").value],["Skor total",r.total],["Rerata",r.avg.toFixed(2)],["Interpretasi sementara",r.band]];
+ r.scores.forEach((s,i)=>rows.push(["Butir "+(i+1),s]));
+ r.labels.forEach((l,i)=>rows.push([l+" (0-12)",r.domainScores[i]]));
+ r.safety.forEach((s,i)=>rows.push(["Keselamatan "+(i+1),s]));
+ const csv=rows.map(row=>row.map(v=>'"'+String(v??"").replace(/"/g,'""')+'"').join(";")).join("\r\n");
+ const blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8;"});
+ const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="hasil-post-sar-"+(document.getElementById("kode").value||"responden")+".csv";a.click();URL.revokeObjectURL(a.href);
+}
+</script>
+</body>
+</html>
